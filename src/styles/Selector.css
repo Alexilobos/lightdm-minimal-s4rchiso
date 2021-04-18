@@ -1,0 +1,22 @@
+.login-selector {
+    width: 100%;
+    margin-top: 15px;
+    display: inline-flex;
+    justify-content: space-around;
+}
+.selector-left, .selector-right {
+    width: 10px;
+    display: flex;
+}
+.selector-left img, .selector-right img { width: 12px; }
+.selector-left:hover, .selector-right:hover { cursor: pointer; }
+.selector-left:hover img, .selector-right:hover img { width: 16px; }
+
+.selector-content {
+    width: 80%;
+    height: 30px;
+
+    overflow: hidden;
+    border: 1px solid #88c0d0;
+    border-radius: 10px;
+}
