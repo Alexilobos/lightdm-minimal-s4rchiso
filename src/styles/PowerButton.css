@@ -1,0 +1,14 @@
+.power-button {
+    padding: 5px;
+    width: 40px;
+    margin: auto;
+    background-color: transparent;
+    border: none;
+    padding-bottom: 0;
+    transition: .3s;
+}
+.power-button:hover {
+    cursor: pointer;
+    filter: contrast(5);
+    -webkit-filter: contrast(5);  
+}

@@ -1,0 +1,14 @@
+.power-box {
+    background-color:#434c5e;
+    bottom:10px;
+    position:absolute;
+    padding:10px 25px;
+    width:auto;
+    border-radius:10px;
+    transform:translate(-50%,-50%);
+    left:50%;
+    /*
+     *box-shadow: 0px 0px 25px #434c5e;
+     */
+    box-shadow: 0 0 50px 5px rgba(0,0,0,.2);
+}
