@@ -30,12 +30,17 @@ if (!('lightdm' in window)) {
     lightdm.sessions = [
         {
             key: "key1",
-            name: "session 1",
+            name: "bspwm",
             comment: "no comment"
         },
         {
             key: "key2",
-            name: "session 2",
+            name: "i3",
+            comment: "no comment"
+        },
+        {
+            key: "key3",
+            name: "gnome",
             comment: "no comment"
         }
     ];
@@ -52,8 +57,8 @@ if (!('lightdm' in window)) {
         {
             name: "sexmachine",
             real_name: "superman",
-            display_name: "Magic Wave",
-            image: "static/profile.png",
+            display_name: "s4rch",
+            image: "",
             language: "en_US",
             layout: null,
             session: null,
@@ -63,7 +68,7 @@ if (!('lightdm' in window)) {
             name: "brucew",
             real_name: "Batman",
             display_name: "Bruce Wayne",
-            image: "http://uk.omg.li/VDHr/OW-blog-Batman.jpg",
+            image: "",
             language: "en_US",
             layout: null,
             session: null,
@@ -83,7 +88,7 @@ if (!('lightdm' in window)) {
 	    name: "zerotwo",
 	    realname: "ZeroTwo",
 	    display_name: "Zero Two",
-	    image: "static/zerotwo.png",
+	    image: "",
 	    layout: null,
 	    session: "bspwm",
 	    logged_in: false
