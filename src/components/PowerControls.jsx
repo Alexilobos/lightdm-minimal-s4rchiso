@@ -5,7 +5,6 @@ import iconReboot from '../assets/action-reboot.png';
 import iconHibernate from '../assets/action-hibernate.png';
 import iconSleep from '../assets/action-sleep.png';
 
-import mock from '../utils/mock';
 import PowerButton from './PowerButton';
 
 
