@@ -15,8 +15,24 @@
 .selector-content {
     width: 80%;
     height: 30px;
-
     overflow: hidden;
     border: 1px solid #88c0d0;
     border-radius: 10px;
+    font-family: fira sans;
+    font-size: 16px;
+    color: #eceff4;
+    transition: opacity .5s ease-in-out;
+    -webkit-transition: opacity .5s ease-in-out;
+}
+.selector-content div {
+    padding: 6px 5px 10px;
+    min-width: 234px;
+    max-width: 234px;
+}
+
+.opacity-visible{
+    opacity: 1;
+}
+.opacity-hide{
+    opacity: 0;
 }

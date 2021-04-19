@@ -61,7 +61,7 @@ if (!('lightdm' in window)) {
             image: "",
             language: "en_US",
             layout: null,
-            session: null,
+            session: "i3",
             logged_in: false
         },
         {
@@ -81,18 +81,18 @@ if (!('lightdm' in window)) {
             image: "",
             language: "en_US",
             layout: null,
-            session: null,
+            session: "gnome",
             logged_in: true
         },
-	{
-	    name: "zerotwo",
-	    realname: "ZeroTwo",
-	    display_name: "Zero Two",
-	    image: "",
-	    layout: null,
-	    session: "bspwm",
-	    logged_in: false
-	}
+        {
+            name: "zerotwo",
+            realname: "ZeroTwo",
+            display_name: "Zero Two",
+            image: "",
+            layout: null,
+            session: "bspwm",
+            logged_in: false
+        }
     ];
 
     lightdm.num_users = lightdm.users.length;

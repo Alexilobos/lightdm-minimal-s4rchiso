@@ -18,10 +18,22 @@ const sleep = () => window.lightdm.suspend();
 const PowerControls = () => {
     return (
         <div className="power-box">
-            <PowerButton icon={iconPowerOff} ev={shutdown} alt="Poweroff" />
-            <PowerButton icon={iconReboot} ev={reboot} alt="Reboot" />
-            <PowerButton icon={iconHibernate} ev={hibernate} alt="Hibernate" />
-            <PowerButton icon={iconSleep} ev={sleep} alt="Sleep" />
+            {
+                window.lightdm.can_shutdown &&
+                <PowerButton icon={iconPowerOff} ev={shutdown} alt="Poweroff" />
+            }  
+            {
+                window.lightdm.can_restart &&
+                <PowerButton icon={iconReboot} ev={reboot} alt="Reboot" />
+            }  
+            {
+                window.lightdm.can_hibernate &&
+                <PowerButton icon={iconHibernate} ev={hibernate} alt="Hibernate" />
+            }  
+            {
+                window.lightdm.can_suspend &&
+                <PowerButton icon={iconSleep} ev={sleep} alt="Sleep" />
+            }  
         </div>
     );
 }
