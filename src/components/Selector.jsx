@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import '../styles/Selector.css';
 
 import leftArrow from '../assets/caret-left.svg';
@@ -6,13 +6,13 @@ import rightArrow from '../assets/caret-right.svg';
 
 
 class Selector extends Component {
-    constructor({ items, callback, defaultIndex }){
-        super({ items, callback, defaultIndex });
+    constructor(props){
+        super(props);
         this.state = {
-            currIndex: defaultIndex,
+            currIndex: props.defaultIndex,
         };
-        this.items = items;
-        this.callback = callback;
+        this.items = props.items;
+        this.callback = props.callback;
     }
     leftArrowAction = () => {
         let currindex = this.state.currIndex - 1
@@ -23,7 +23,7 @@ class Selector extends Component {
     }
     rightArrowAction = () => {
         let currindex = this.state.currIndex + 1;
-        if(currindex >= this.items.length - 1)
+        if(currindex > this.items.length - 1)
             currindex = 0; 
         this.setState({ currIndex: currindex });
         this.callback(currindex, this.items[currindex].name);
