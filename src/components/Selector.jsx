@@ -1,46 +1,55 @@
-import React, { useState } from 'react';
+import React, { Component, useState } from 'react';
 import '../styles/Selector.css';
 
 import leftArrow from '../assets/caret-left.svg';
 import rightArrow from '../assets/caret-right.svg';
 
 
-const Selector = ({ items, callback, defaultIndex }) => {
-    const [currIndex, setCurrIndex] = useState(defaultIndex);
-    const leftArrowAction = () => {
-        let currindex = currIndex - 1
-        if(currindex <= 0)
-            currindex = items.length - 1;
-        setCurrIndex(currindex);
-        callback(currindex, items[currindex].name);
+class Selector extends Component {
+    constructor({ items, callback, defaultIndex }){
+        super({ items, callback, defaultIndex });
+        this.state = {
+            currIndex: defaultIndex,
+        };
+        this.items = items;
+        this.callback = callback;
     }
-    const rightArrowAction = () => {
-        let currindex = currIndex + 1;
-        if(currindex >= items.length - 1)
-            currindex = 0;
-        setCurrIndex(currindex);
-        callback(currindex, items[currindex].name);
+    leftArrowAction = () => {
+        let currindex = this.state.currIndex - 1
+        if(currindex < 0)
+            currindex = this.items.length - 1; 
+        this.setState({ currIndex: currindex}); 
+        this.callback(currindex, this.items[currindex].name);
     }
-    return (
-        <div className="login-selector">
-            {
-                items.length > 0 &&
-                <div className="selector-left">
-                    <img src={leftArrow} alt="left arrow" onClick={leftArrowAction.bind()} />
+    rightArrowAction = () => {
+        let currindex = this.state.currIndex + 1;
+        if(currindex >= this.items.length - 1)
+            currindex = 0; 
+        this.setState({ currIndex: currindex });
+        this.callback(currindex, this.items[currindex].name);
+    }
+    render(){
+        return (
+            <div className="login-selector">
+                {
+                    this.items.length > 0 &&
+                    <div className="selector-left">
+                        <img src={leftArrow} alt="left arrow" onClick={this.leftArrowAction.bind()} />
+                    </div>
+                }
+                <div className="selector-content" >{
+                    <div id={this.items[this.state.currIndex].key}>{this.items[this.state.currIndex].name}</div>
+                }
                 </div>
-            }
-            <div className="selector-content" >{
-                <div id={items[currIndex].key}>{items[currIndex].name}</div>
-            }
+                {
+                    this.items.length > 0 &&
+                    <div className="selector-right">
+                        <img src={rightArrow} alt="right arrow" onClick={this.rightArrowAction.bind()} />
+                    </div>
+                }
             </div>
-            {
-                items.length > 0 &&
-                <div className="selector-right">
-                    <img src={rightArrow} alt="right arrow" onClick={rightArrowAction.bind()} />
-                </div>
-            }
-        </div>
-    );
+        );
+    }
 }
 
 export default Selector;
