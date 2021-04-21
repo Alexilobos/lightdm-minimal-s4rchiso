@@ -19,7 +19,6 @@ for (let userIndex in lightdm.users) {
     };
     users.push(newUser);
 }
-console.log(process.env.NODE_ENV);
 for (let sessionIndex in lightdm.sessions) {
     let session = lightdm.sessions[sessionIndex];
     sessions.push({
