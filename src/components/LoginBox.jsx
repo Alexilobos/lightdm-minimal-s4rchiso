@@ -4,8 +4,6 @@ import '../styles/LoginBox.css';
 import DefaultAvatar from '../assets/profile.png';
 import Selector from './Selector';
 import capsLock from 'capslock';
-import mock from '../utils/mock';
-
 const lightdm = window.lightdm;
 
 let users = [],
@@ -21,6 +19,7 @@ for (let userIndex in lightdm.users) {
     };
     users.push(newUser);
 }
+console.log(process.env.NODE_ENV);
 for (let sessionIndex in lightdm.sessions) {
     let session = lightdm.sessions[sessionIndex];
     sessions.push({
