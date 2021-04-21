@@ -8,16 +8,18 @@ import rightArrow from '../assets/caret-right.svg';
 const Selector = ({ items, callback, defaultIndex }) => {
     const [currIndex, setCurrIndex] = useState(defaultIndex);
     const leftArrowAction = () => {
-        setCurrIndex(currIndex - 1);
-        if(currIndex <= 0)
-            setCurrIndex(items.length - 1);
-        callback(currIndex);
+        let currindex = currIndex - 1
+        if(currindex <= 0)
+            currindex = items.length - 1;
+        setCurrIndex(currindex);
+        callback(currindex, items[currindex].name);
     }
     const rightArrowAction = () => {
-        setCurrIndex(currIndex + 1);
-        if(currIndex >= items.length - 1)
-            setCurrIndex(0);
-        callback(currIndex);
+        let currindex = currIndex + 1;
+        if(currindex >= items.length - 1)
+            currindex = 0;
+        setCurrIndex(currindex);
+        callback(currindex, items[currindex].name);
     }
     return (
         <div className="login-selector">

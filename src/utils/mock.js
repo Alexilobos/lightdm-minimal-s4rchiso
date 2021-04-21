@@ -55,9 +55,9 @@ if (!('lightdm' in window)) {
 
     lightdm.users = [
         {
-            name: "sexmachine",
-            real_name: "superman",
-            display_name: "s4rch",
+            username: "s4rch",
+            real_name: "Sergio Ribera",
+            display_name: "sergioribera",
             image: "",
             language: "en_US",
             layout: null,
@@ -65,7 +65,7 @@ if (!('lightdm' in window)) {
             logged_in: false
         },
         {
-            name: "brucew",
+            username: "brucew",
             real_name: "Batman",
             display_name: "Bruce Wayne",
             image: "",
@@ -75,7 +75,7 @@ if (!('lightdm' in window)) {
             logged_in: false
         },
         {
-            name: "peterp",
+            username: "peterp",
             real_name:"Spiderman",
             display_name: "Peter Parker",
             image: "",
@@ -85,7 +85,7 @@ if (!('lightdm' in window)) {
             logged_in: true
         },
         {
-            name: "zerotwo",
+            username: "zerotwo",
             realname: "ZeroTwo",
             display_name: "Zero Two",
             image: "",
@@ -108,6 +108,9 @@ if (!('lightdm' in window)) {
 
         lightdm._timed_login_cancelled= true;
     };
+    lightdm.cancel_autologin = function(){
+        console.log("Cancel Autologin");
+    }
 
     lightdm.provide_secret = function (secret) {
         if (typeof lightdm._username == 'undefined' || !lightdm._username) {
