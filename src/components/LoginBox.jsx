@@ -1,9 +1,10 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import '../styles/LoginBox.css';
 
 import DefaultAvatar from '../assets/profile.png';
 import Selector from './Selector';
 import capsLock from 'capslock';
+//import mock from '../utils/mock'
 const lightdm = window.lightdm;
 
 let users = [],
@@ -41,7 +42,10 @@ class LoginBox extends Component {
             sessionSelectIndex: 0,
             password: "",
             passwordError: "",
-            passwordStyle: null,
+            passwordStyle: {
+                color: '',
+                borderColor: 'orange'
+            },
             authenticating: false,
             avatarSrc: DefaultAvatar
         };
@@ -58,7 +62,7 @@ class LoginBox extends Component {
     }
     passwordWarningStyle = {
         color: '',
-        borderColor: 'orange'
+        border: '1px solid #ffa59b !important'
     }
     updatePassword = (event) => {
 
@@ -137,16 +141,18 @@ class LoginBox extends Component {
     }
     render() {
         return (
-            <form className="login-box" onSubmit={e => {}}>
+            <form className="login-box" onSubmit={this.login.bind(this)}>
                 <img className="image-profile" src={this.state.avatarSrc} alt="User Profile"/>
                 <Selector items={users} defaultIndex={this.state.userSelectIndex} callback={this.changeUserName} />
                 <Selector items={sessions} defaultIndex={this.state.sessionSelectIndex} callback={this.changesessionKey}/>
                 <input  className="input-password"
                     placeholder="Enter your password"
                     type="password"
+                    style={{border: this.state.passwordStyle.borderColor ? this.state.passwordStyle.border : ''}}
+                    onChange={this.updatePassword}/>
+                <button
                     disabled={this.state.authenticating}
-                    onChange={this.login.bind(this)}/>
-                <button type="submit">Login</button>
+                    type="submit">Login</button>
             </form>
         );
     }
